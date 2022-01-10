@@ -1,0 +1,25 @@
+<div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        
+        <label for="rows">rows: </label>
+        <input (change)="onSubmit()" id="rows" type="number" [min]=0 formControlName="myRows">
+        
+        <label for="cols">cols: </label>
+        <input (change)="onSubmit()" id="cols" type="number" [min]=0 formControlName="myCols">
+
+        <label for="mode">mode: </label>
+        <input (change)="onSubmit()" id="mode" type="number" [min]=0 [max]=4 formControlName="mode">
+        
+        <input id="verticals" type="checkbox" formControlName="verticals">
+        <label for="verticals">verticals </label>
+        
+        <input id="angled" type="checkbox" formControlName="angled">
+        <label for="angled">angled </label>
+
+        <input id="only_x" type="checkbox" formControlName="only_x">
+        <label for="only x">only x </label>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">generate</button>
+    </form>
+    
+</div>
