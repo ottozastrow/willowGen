@@ -10,16 +10,25 @@
         <label for="mode">mode: </label>
         <input (change)="onSubmit()" id="mode" type="number" [min]=0 [max]=4 formControlName="mode">
         
-        <input id="verticals" type="checkbox" formControlName="verticals">
+        <input (change)="onSubmit()" id="verticals" type="checkbox" formControlName="verticals">
         <label for="verticals">verticals </label>
         
-        <input id="angled" type="checkbox" formControlName="angled">
+        <input (change)="onSubmit()" id="angled" type="checkbox" formControlName="angled">
         <label for="angled">angled </label>
 
-        <input id="only_x" type="checkbox" formControlName="only_x">
+        <input (change)="onSubmit()" id="only_x" type="checkbox" formControlName="only_x">
         <label for="only x">only x </label>
 
-        <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">generate</button>
+        <input (change)="onSubmit()" id="parallel" type="checkbox" formControlName="parallel">
+        <label for="parallel x">parallel</label>
+
+
+        <!-- <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">generate</button> -->
     </form>
+    <div class="container">
+        <button (click)="onGenerate3d()" class="btn btn-primary">generate 3d animation</button>
+        <button (click)="onGenerate2d()" class="btn btn-primary">generate 2d animation</button>
+
+    </div>
     
 </div>

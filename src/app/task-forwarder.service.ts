@@ -13,12 +13,12 @@ export class TaskForwarderService {
   currentMessage = this.messageSource.asObservable()
 
   constructor (private http: HttpClient) { }
-  configUrl = 'http://127.0.0.1:5000/'
+  configUrl = 'http://127.0.0.1:5000/';
 
-  sendTask (settings: { [x: string]: number; }): void {
+  sendTask (endpoint: string, settings: { [x: string]: number; }): void {
     let params = new HttpParams()
     params = params.append('settings', JSON.stringify(settings))
-    const response = this.http.get(this.configUrl, { params: params }).subscribe(data => {
+    const response = this.http.get(this.configUrl + endpoint, { params: params }).subscribe(data => {
       this.changeMessage(data)
     })
   }

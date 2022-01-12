@@ -14,7 +14,8 @@ export class InputsComponent implements OnInit {
     verticals: [true, Validators.required],
     angled: [false, Validators.required],
     mode: [1, Validators.required],
-    only_x: [false, Validators.required]
+    only_x: [false, Validators.required],
+    parallel: [false, Validators.required]
   })
 
   constructor (
@@ -27,8 +28,13 @@ export class InputsComponent implements OnInit {
   }
 
   onSubmit () {
-    this.taskforwarder.sendTask(this.profileForm.value)
-    console.log(this.profileForm.value)
+    this.taskforwarder.sendTask("", this.profileForm.value)
+  }
+  onGenerate3d () {
+    this.taskforwarder.sendTask("animate3d",this.profileForm.value)
+  }
+  onGenerate2d () {
+    this.taskforwarder.sendTask("animate2d",this.profileForm.value)
   }
 }
 

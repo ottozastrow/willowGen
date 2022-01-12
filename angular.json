@@ -81,7 +81,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "willowGen:build"
+            "browserTarget": "willowGen:build",
+            "disableHostCheck": true
           }
         },
         "test": {
